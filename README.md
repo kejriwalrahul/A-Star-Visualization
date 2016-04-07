@@ -2,6 +2,7 @@
 Project that shows execution paths for A-star search and compares with Greedy BFS and Djikstra
 
 Usage:
+
 	./run [name_of_graph_file] [init_node] [term_node]
 
 Graph input format:
