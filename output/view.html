@@ -1,0 +1,90 @@
+<html>
+<head>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	<link rel="stylesheet" href="view.css">
+
+</head>
+
+<body>
+	<h2 align="center">A* search algorithm</h2>
+	<br>
+
+	<div class="col-md-12">
+		<div class="col-md-4 col-md-offset-4">
+			Legend:
+			<ol>
+				<li> <span style="color:red">Red</span> - Nodes traversed by the algorithm
+				<li> <span style="color:blue">Blue</span> - Nodes seen but not traversed by the algorithm
+				<li> White - Nodes untraversed by the algorithm
+				<li> <span style="color:green">Green</span> - Nodes on path determined by the algorithm
+			</ol>
+		</div>
+	</div>
+
+	<br><br>
+
+	<div class="col-md-4 highlight" style="height: 625px;">
+		<h3 align="center">A* search</h3>
+		<img src="../gifs/astar.gif" style="height: 400px; width: 400px">
+		<br><br>
+		<div class="col-md-8 col-md-offset-1" align="center">
+			<b>Explanation:</b> In each iteration, it finds the currently seen but untraversed vertex that minimizes, f(n) + h(n)
+			where f(n) and h(n) give the distance of n from source vertex and estimated distance of n to terminal vertex
+		</div>
+	</div>
+
+	<div class="col-md-4 highlight" style="height: 625px;">
+		<h3 align="center">Djikstra</h3>
+		<img src="../gifs/djikstra.gif" style="height: 400px; width: 400px">
+		<br><br>
+		<div class="col-md-8 col-md-offset-1" align="center">
+			<b>Explanation:</b> In each iteration, it finds the currently seen but untraversed vertex that minimizes, f(n)
+			where f(n) gives the distance of n from source vertex
+		</div>
+	</div>
+
+	<div class="col-md-4 highlight" style="height: 625px;">
+		<h3 align="center">Greedy BFS</h3>
+		<img src="../gifs/greedybfs.gif" style="height: 400px; width: 400px">
+		<br><br>
+		<div class="col-md-8 col-md-offset-1" align="center">
+			<b>Explanation:</b> In each iteration, it finds the currently seen but untraversed vertex that minimizes, h(n)
+			where h(n) gives the estimated distance of n to terminal vertex
+		</div>
+	</div>
+
+    <div class="col-md-10 col-md-offset-2" style="padding:50px; margin-left:25px">
+    <h3>Intuitive Proof of Correctness of A*:</h3>
+    <pre>
+
+The A* search algorithm involves finding the optimal path between two vertices, s and t. It takes a heuristic function,
+ h(vi) that provides an estimate of the distance between vi and t and which satisfies the following property:
+
+i. Never overestimates the cost:
+    h(vi) < d(vi ,t)
+    where d(i,j) gives the smallest distance between  i and j.
+ii. Is monotonic:
+    h(vi) < h(vj) => d(vi,t) < d(vj,t)
+
+If the heuristic satisfies these properties, it is said to be admissible and A* will give a correct optimal solution.
+
+The A* algorithm selects a vertex, n with minimum f(n) + h(n), where f(n) is the currently known distance of n from s, to
+expand a path in each iteration. This is an optimistic choice as the f(n) + h(n) gives a lower bound on the length of the
+current path to t.
+
+This continues until the algorithm selects n = t, in which case it terminates and we have an optimal path
+whose length is given by f(t) which would have been computed by this stage. Note that this path has to be optimal since,
+all the other paths had larger optimistic estimates f(v)+h(v) and would consequently have possibly even larger actual
+distances as h is monotonic.
+
+If the vertex t is not reachable from s, the algorithm will simply terminate without finding an optimal path as it runs
+out of vertices to expand from.
+
+Note: For our implementation, we have used the Manhattan distance ( = |x2-x1| + |y2-y1| ) between two points as the
+heuristic and our graph is of the form of a grid where each vertex represents a x,y coordinate.
+
+    </pre>
+    </div>
+</body>
+</html>

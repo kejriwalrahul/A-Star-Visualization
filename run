@@ -1,0 +1,9 @@
+rm -rf astar
+rm -rf bfs
+rm -rf djikstra
+python astar.py $1 $2 $3
+rm -rf astar
+rm -rf bfs
+rm -rf djikstra
+mv view.html ./output/view.html
+mv view.css ./output/view.css
