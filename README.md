@@ -16,6 +16,4 @@ and all values are restricted to integers.
 
 Note: Negative egdeWt not allowed.
 
-Checkout demo output at:
-
-https://cdn.rawgit.com/kejriwalrahul/A-Star-Visualization/master/output/view.html/
+Checkout demo output [here](https://cdn.rawgit.com/kejriwalrahul/A-Star-Visualization/master/output/view.html)
