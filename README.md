@@ -15,5 +15,3 @@ where x1 and x2 are x- coordinates of nodes and y1 and y2 are y-coordinates
 and all values are restricted to integers.
 
 Note: Negative egdeWt not allowed.
-
-Checkout demo output [here](https://cdn.rawgit.com/kejriwalrahul/A-Star-Visualization/master/output/view.html)
