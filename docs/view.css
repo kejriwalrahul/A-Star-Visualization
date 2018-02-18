@@ -2,7 +2,6 @@
 	color: black;
 	padding: 9px 14px;
 	border-radius: 6px;
-	/*height: 70%;*/
 	margin-left: 3%;
 	margin-right: 3%;
 	text-align: center;
@@ -73,19 +72,11 @@ hr {
 .gif {
 	height: 240px; 
 	width: 240px;
-	/*border: 1px solid black;*/
 	border-radius: 5px;
 }
 
 .bannerimg {
-	top: 0; 
-	right: 0;
-}
-
-@media (max-width: 1024px) {
-	.bannerimg {
-		transform: scale(0.8, 0.8);
-		right: -15px;
-		top: -15px;
-	}
+	transform: scale(0.9, 0.9);
+	right: -15px;
+	top: -15px;
 }
