@@ -1,0 +1,103 @@
+<html>
+<head>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="view.css">
+
+</head>
+
+<body style="overflow: hidden;">
+	<a href="https://github.com/kejriwalrahul/A-Star-Visualization"><img class="bannerimg" style="position: absolute; border: 0; z-index: 5;" src="https://camo.githubusercontent.com/652c5b9acfaddf3a9c326fa6bde407b87f7be0f4/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6f72616e67655f6666373630302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png"></a>
+
+	<div class="row">
+		<div class="col-md-4 left_panel">
+			<div>
+				<h4 style="margin-bottom: 0">Welcome to</h4>
+				<h2 style="margin-top: 0; margin-bottom: 0">A* Search Visualization</h2>
+				<hr>
+				<div style="overflow-y: hidden; height: 61vh; font-size: 0.9em;">
+				<h4>Algorithm Details: </h4>
+				    <ul style="padding-left: 25px; list-style-type: square;">
+				    	<li>
+				    		The A* search algorithm uses a heuristic function h that estimates the distance between v<sub>i</sub> and t such that:
+				    		<ol>
+				    			<li> underestimates the cost: h(v<sub>i</sub>) < d(v<sub>i</sub>,t) where d(i,j) is the smallest distance between i and j
+				    			<li> Is monotonic: h(v<sub>i</sub>) < h(v<sub>j</sub>) => d(v<sub>i</sub>,t) < d(v<sub>j</sub>,t)
+				    		</ol>
+				    		Such heuristics are said to be admissible and guarantee that A* will give a correct optimal solution.
+							<br><b>Note:</b> We have used the Manhattan distance (= |x<sub>2</sub>-x<sub>1</sub>| + |y<sub>2</sub>-y<sub>1</sub>|) as the heuristic because our graph is of the form of a grid where each vertex represents a x,y coordinate.
+				    	</li>
+				    	<li>
+							The A* algorithm expands node n with min f(n) + h(n) every iteration, where f(n) is the currently known distance of n from s. This is an optimistic choice as the f(n) + h(n) gives a lower bound on the length of the current path to t.
+				    	</li>
+				    	<li>
+							This continues until the algorithm selects n = t, when it terminates and an optimal path is found. Note that this path has to be optimal since, all the other paths had larger optimistic estimates f(v)+h(v).
+				    	</li>
+				    </ul>
+				</div>
+				<hr>
+				<!-- <br> -->
+				<div class="container" style="width: 100%; font-size: 0.8em;">
+					<div>
+						<span style="font-size: 1.1em; font-weight: 5">Legend:</span>
+						<ul style="padding-left: 20px;">
+							<li class="legend"><span class="badge badge-pill badge-danger">&nbsp;</span> Red - Expanded Nodes
+							<li class="legend"><span class="badge badge-pill badge-primary">&nbsp;</span> Blue - Frontier Nodes (Unexpanded)
+							<li class="legend"><span class="badge badge-pill" style="background-color: white">&nbsp;</span> White - Unseen Nodes
+							<li class="legend"><span class="badge badge-pill badge-success">&nbsp;</span> Green - Found Path Nodes
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="col-md-8 right_panel" style="padding-left: 0">
+			<table style="height: 100vh; width: 100%">
+				<tr>
+					<td>
+						<div class="highlight">
+							<h3 align="center">Djikstra Search</h3>
+							<br>
+							<img src="../gifs/djikstra.gif" class="gif">
+							<br><br><br>
+							<div>
+								<b>Explanation:</b> In each iteration, it finds the currently seen but untraversed vertex that minimizes, f(n)
+								where f(n) gives the distance of n from source vertex
+							</div>
+						</div>
+					</td>
+
+					<td>
+						<div class="highlight">
+							<h3 align="center">A* Search</h3>
+							<br>
+							<img src="../gifs/astar.gif" class="gif">
+							<br><br><br>
+							<div>
+								<b>Explanation:</b> In each iteration, it finds the currently seen but untraversed vertex that minimizes, f(n) + h(n)
+								where f(n) and h(n) give the distance of n from source vertex and estimated distance of n to terminal vertex
+							</div>
+						</div>
+					</td>
+
+					<td>
+						<div class="highlight">
+							<h3 align="center">Greedy BFS</h3>
+							<br>
+							<img src="../gifs/greedybfs.gif" class="gif">
+							<br><br><br>
+							<div>
+								<b>Explanation:</b> In each iteration, it finds the currently seen but untraversed vertex that minimizes, h(n)
+								where h(n) gives the estimated distance of n to terminal vertex
+							</div>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>
